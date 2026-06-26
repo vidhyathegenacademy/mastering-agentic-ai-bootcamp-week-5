@@ -1,6 +1,6 @@
 # Mastering Agentic AI Bootcamp: Week 5
 
-Week 5 demo materials for an LLM DPO workflow that aligns a model to The Gen Academy's brand voice.
+Week 5 project materials for an LLM DPO workflow that aligns a model to The Gen Academy's brand voice.
 
 ## Contents
 
@@ -9,11 +9,13 @@ Week 5 demo materials for an LLM DPO workflow that aligns a model to The Gen Aca
 - `data/brand_voice_trl_dpo.jsonl`: TRL-compatible DPO dataset.
 - `data/brand_voice_trl_dpo_train.jsonl`: train split.
 - `data/brand_voice_trl_dpo_eval.jsonl`: held-out eval split.
+- `data/gen_academy_brand_voice_dpo_train_120_raw.jsonl`: original 120-pair preference dataset.
 - `requirements.txt`: Python dependencies for the notebook.
 
 ## Dataset
 
-The dataset has 80 preference pairs across 10 brand-voice content categories.
+The dataset has 120 preference pairs across 12 brand-voice content categories.
+The notebook uses 108 rows for training and 12 rows for held-out evaluation.
 
 DPO training uses:
 
@@ -30,4 +32,4 @@ pip install -r requirements.txt
 jupyter notebook notebooks/brand_voice_huggingface_dpo_demo.ipynb
 ```
 
-The notebook is already executed with the local demo results. To retrain from scratch, delete `outputs/gen-academy-brand-voice-hf-dpo` after running the notebook once locally.
+The notebook is already executed with local project results. To retrain from scratch, delete `outputs/gen-academy-brand-voice-hf-dpo` after running the notebook once locally.
