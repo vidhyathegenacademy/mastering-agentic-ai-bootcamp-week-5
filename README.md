@@ -10,12 +10,13 @@ Week 5 project materials for an LLM DPO workflow that aligns a model to The Gen 
 - `data/brand_voice_trl_dpo_train.jsonl`: train split.
 - `data/brand_voice_trl_dpo_eval.jsonl`: held-out eval split.
 - `data/gen_academy_brand_voice_dpo_train_120_raw.jsonl`: original 120-pair preference dataset.
+- `data/gen_academy_brand_voice_dpo_360_raw.jsonl`: expanded 360-pair preference dataset.
 - `requirements.txt`: Python dependencies for the notebook.
 
 ## Dataset
 
-The dataset has 120 preference pairs across 12 brand-voice content categories.
-The notebook uses 108 rows for training and 12 rows for held-out evaluation.
+The current dataset has 360 preference pairs across 12 brand-voice content categories.
+The notebook uses 324 rows for training and 36 rows for held-out evaluation.
 
 DPO training uses:
 
@@ -32,4 +33,6 @@ pip install -r requirements.txt
 jupyter notebook notebooks/brand_voice_huggingface_dpo_demo.ipynb
 ```
 
-The notebook is already executed with local project results. To retrain from scratch, delete `outputs/gen-academy-brand-voice-hf-dpo` after running the notebook once locally.
+The notebook defaults to `Qwen/Qwen2.5-0.5B-Instruct`, which is practical for a Colab GPU run. For a stronger GPU, set `HF_DPO_BASE_MODEL=Qwen/Qwen2.5-1.5B-Instruct`.
+
+The notebook reports length-normalized preference margin as the main before/after metric because on-brand chosen answers are usually longer than rejected hype-heavy answers. To retrain from scratch, delete the output folder or set a new `HF_DPO_OUTPUT_DIR`.
